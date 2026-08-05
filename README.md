@@ -13,9 +13,9 @@ Prior to ZTA, the early agentic ecosystem suffered from the "Weekend MVP Trap"�
 The implementation of LLM orchestration has transitioned from brittle prompt-heavy scripts to chaotic agent state loops, shifting toward modern hyper-deterministic, state-cached, and compiled zero-token execution paths.
 
 ```mermaid
-graph LR
-    PE[Prompt Engineering Era <br> 2022-2023] --> AA[Brittle Agentic Clusters <br> 2024-2025]
-    AA --> ZTA[Zero Token Architecture <br> 2026+]
+flowchart LR
+    PE["Prompt Engineering Era (2022-2023)"] --> AA["Brittle Agentic Clusters (2024-2025)"]
+    AA --> ZTA["Zero Token Architecture (2026+)"]
     
     style PE fill:#f9f,stroke:#333,stroke-width:1px
     style AA fill:#bbf,stroke:#333,stroke-width:1px
@@ -52,17 +52,16 @@ Depending on the specific architectural layer under consideration, "Zero Token" 
 To move production workflows away from constant token processing and into structured, persistent state, a standard ZTA deployment utilizes a strict five-layer execution model.
 
 ```mermaid
-┌─────────────────────────────────────────────────────────────┐
-│ Layer 5: Verification & Governance (Rules/Human-in-the-Loop)│
-├─────────────────────────────────────────────────────────────┤
-│ Layer 4: Reasoning Escalation (LLM Awakens on Exception)   │
-├─────────────────────────────────────────────────────────────┤
-│ Layer 3: Deterministic Control (State Machines & Python)    │
-├─────────────────────────────────────────────────────────────┤
-│ Layer 2: State & Memory (Action Traces & Context Cache)     │
-├─────────────────────────────────────────────────────────────┤
-│ Layer 1: Event & Perception Layer (Telemetry/Webhooks)     │
-└─────────────────────────────────────────────────────────────┘
+flowchart TB
+    L5["Layer 5: Verification & Governance (Rules/Human-in-the-Loop)"]
+    L4["Layer 4: Reasoning Escalation (LLM Awakens on Exception)"]
+    L3["Layer 3: Deterministic Control (State Machines & Python)"]
+    L2["Layer 2: State & Memory (Action Traces & Context Cache)"]
+    L1["Layer 1: Event & Perception Layer (Telemetry/Webhooks)"]
+    L5 --- L4
+    L4 --- L3
+    L3 --- L2
+    L2 --- L1
 ```
 
 *   **Layer 1: Event & Perception Layer**
